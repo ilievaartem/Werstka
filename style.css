@@ -20,13 +20,27 @@ teg-майже така сама(0001)
 
 .class-важлива(0010)
 
-[attributes]-важлива, але не частов вик.(0011)
+[attr=value]-важлива, але не часто вик.(0010)
 
 #id-найважливіший(0100)
 
 inline style(ті, які вказані безпосередньо в хтмл розмітці всередині тега style) - будуть важити найбільше(1000)
 
+
+
+Комбінатор - особливі символи, які позначають зв'язок елементів(* теж вважається комбінатором):
+- Пробіл " " між атрибутом та елементом вказує на нащадків(глибоко вкладані десь) певного тега(h2 є нащадком arrticle) (general descendent combinator)
+- Кома , вказує декілька селекторів списком (list combinator)
+- > дочірні елементи (child selector)
+- для siblings:
+~ - загальний комбінатор для всіх сіблінгів(брати і сетсри навіть двоюрідні), які нижче в потоці за вибраний елемент (general sibling selector)
++ - комбінатор найближчого сіблінга ОДНОГО (next sibling)
+
 */
+
+body {
+    background-color: rgba(169, 169, 169, 0.596);
+}
 
 *{
     color: blue;
@@ -36,12 +50,17 @@ p {
     color: green;
 }
 
+h1 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-size: 18px;
+}
+
 .italic-text{
     font-style: italic;
     color: blueviolet;
 }
 
-.gold-text {
+.gold-text, p, h2 {
     color: gold;
 }
 
@@ -50,9 +69,22 @@ h2.gold-text{
 }
 
 #middle-p {
-    color: red;
+    color: rgb(34, 23, 255);
+    background-color: #F9FADF;
 }
 
 label[for="mail-input"] {
     color: brown;
+}
+
+article h2{
+    background-color: blanchedalmond;
+}
+
+article>h2{
+    background-color: rgba(0, 0, 255, 0.493);
+}
+
+p + p {
+    background-color: gainsboro;
 }
